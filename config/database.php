@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'sqlite'),
+    'default' => env('DB_CONNECTION', 'mongodb'),
 
     /*
     |--------------------------------------------------------------------------
@@ -30,6 +30,17 @@ return [
     */
 
     'connections' => [
+
+        'mongodb' => [
+            'driver'   => 'mongodb',
+            'dsn'      => env('DB_HOST'),
+            'database' => env('DB_DATABASE'),
+            'username' => env('DB_USERNAME'),
+            'password' => env('DB_PASSWORD'),
+            'options'  => [
+                'ssl' => true, // Enables SSL for secure connections
+            ],
+        ],
 
         'sqlite' => [
             'driver' => 'sqlite',
